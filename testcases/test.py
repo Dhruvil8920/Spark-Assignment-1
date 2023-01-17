@@ -4,7 +4,7 @@ import unittest
 
 class Test(unittest.TestCase):
     def TestUniqueLocation(self):
-        self.assertTrue(UniqueLocation(), 3)
+        self.assertTrue(UniqueLocation(JoinClm), 3)
 
     def TestProductByEachUser(self):
         def compareDF(spark):
@@ -23,10 +23,10 @@ class Test(unittest.TestCase):
             df = spark.createDataFrame(data=data, schema=schema)
             return df
 
-        self.assertTrue(ProductByEachUser(), compareDF(spark))
+        self.assertTrue(ProductByEachUser(JoinClm), compareDF(spark))
 
     def TestTotalSpending(self):
-        def checkDF(spark):
+        def checkDF():
             schema = StructType([StructField("user_id", IntegerType(), True),\
                                  StructField("product_description", StringType(), True),\
                                  StructField("price", LongType(), False)])
@@ -44,4 +44,8 @@ class Test(unittest.TestCase):
             df = spark.createDataFrame(data=data, schema=schema)
             return df
 
-        self.assertTrue(TotalSpending(), checkDF(spark))
+        self.assertTrue(TotalSpending(JoinClm), checkDF(spark))
+
+#
+if __name__ == 'main':
+    unittest.main()
