@@ -23,10 +23,10 @@ class Test(unittest.TestCase):
             df = spark.createDataFrame(data=data, schema=schema)
             return df
 
-        self.assertTrue(ProductByEachUser(JoinClm), compareDF(spark))
+        self.assertTrue(ProductByEachUser(), compareDF(spark))
 
     def TestTotalSpending(self):
-        def checkDF():
+        def checkDF(spark):
             schema = StructType([StructField("user_id", IntegerType(), True),\
                                  StructField("product_description", StringType(), True),\
                                  StructField("price", LongType(), False)])
@@ -44,7 +44,7 @@ class Test(unittest.TestCase):
             df = spark.createDataFrame(data=data, schema=schema)
             return df
 
-        self.assertTrue(TotalSpending(JoinClm), checkDF(spark))
+        self.assertTrue(TotalSpending(), checkDF(spark))
 
 #
 if __name__ == 'main':

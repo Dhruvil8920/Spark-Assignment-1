@@ -14,26 +14,29 @@ def ReadTransactionCsv(path2):
     return df2
 
 # Join two table
-def JoinClm(ReadUserCsv, ReadTransactionCsv):
+def JoinClm():
     df1 = ReadUserCsv(path1)
     df2 = ReadTransactionCsv(path2)
     df3 = df1.join(df2, df1["user_id"] == df2["userid"])
     return df3
 
 # Count of unique locations where each product is sold
-def UniqueLocation(JoinClm):
+def UniqueLocation():
     df3 = JoinClm()
     df4 = df3.select("location ").distinct().count()
     return df4
 
 # Products bought by each user
-def ProductByEachUser(JoinClm):
-    df3 = JoinClm(ReadUserCsv, ReadTransactionCsv)
+def ProductByEachUser():
+    df3 = JoinClm()
     df5 = df3.select("user_id", "product_description").orderBy("user_id")
     return df5
 
 # Total spending done by each user on each product
-def TotalSpending(JoinClm):
-    df3 = JoinClm(ReadUserCsv, ReadTransactionCsv)
+def TotalSpending():
+    df3 = JoinClm()
     df6 = df3.select("user_id", "product_description", "price").orderBy("user_id")
     return df6
+
+a= TotalSpending()
+a.show()
