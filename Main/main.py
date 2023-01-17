@@ -37,6 +37,3 @@ def TotalSpending():
     df3 = JoinClm()
     df6 = df3.select("user_id", "product_description", "price").orderBy("user_id")
     return df6
-
-a= TotalSpending()
-a.show()
