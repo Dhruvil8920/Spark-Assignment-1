@@ -1,8 +1,7 @@
 from pyspark.sql.types import StringType, StructField, LongType, IntegerType, StructType
-from Main.main import *
+from etl.assignment1utils.main import *
 import unittest
 
-spark = SparkSession.builder.getOrCreate()
 class TestMyFunc(unittest.TestCase):
 
 # ANS : 1 Total count of unique location
