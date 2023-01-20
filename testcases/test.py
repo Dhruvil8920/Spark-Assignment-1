@@ -7,6 +7,7 @@ class Test(unittest.TestCase):
     def TestUniqueLocation(self):
         self.assertTrue(UniqueLocation(), 3)
 
+# ANS : 2 Product By Each User
     def TestProductByEachUser(self):
         def compareDF(spark):
             schema = StructType([StructField("user_id", IntegerType(), True), \
@@ -26,6 +27,7 @@ class Test(unittest.TestCase):
 
         self.assertTrue(ProductByEachUser(), compareDF(spark))
 
+    # Ans: 3 Total Spending
     def TestTotalSpending(self):
         def checkDF(spark):
             schema = StructType([StructField("user_id", IntegerType(), True), \
