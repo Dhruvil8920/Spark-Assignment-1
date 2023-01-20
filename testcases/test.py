@@ -2,9 +2,10 @@ from pyspark.sql.types import StringType, StructField, LongType, IntegerType, St
 from Main.main import *
 import unittest
 
+
 class Test(unittest.TestCase):
     def TestUniqueLocation(self):
-        self.assertTrue(UniqueLocation(JoinClm), 3)
+        self.assertTrue(UniqueLocation(), 3)
 
     def TestProductByEachUser(self):
         def compareDF(spark):
@@ -20,15 +21,15 @@ class Test(unittest.TestCase):
                     (105, "sofa"), \
                     (105, "bed"), \
                     (105, "phone")]
-            df = spark.createDataFrame(data=data, schema=schema)
-            return df
+            df4 = spark.createDataFrame(data=data, schema=schema)
+            return df4
 
         self.assertTrue(ProductByEachUser(), compareDF(spark))
 
     def TestTotalSpending(self):
         def checkDF(spark):
-            schema = StructType([StructField("user_id", IntegerType(), True),\
-                                 StructField("product_description", StringType(), True),\
+            schema = StructType([StructField("user_id", IntegerType(), True), \
+                                 StructField("product_description", StringType(), True), \
                                  StructField("price", LongType(), False)])
 
             data = [(101, "speaker", 500), \
@@ -46,6 +47,5 @@ class Test(unittest.TestCase):
 
         self.assertTrue(TotalSpending(), checkDF(spark))
 
-#
 if __name__ == 'main':
     unittest.main()
