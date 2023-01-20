@@ -5,11 +5,11 @@ import unittest
 class TestMyFunc(unittest.TestCase):
 
 # ANS : 1 Total count of unique location
-    def TestUniqueLocation(self):
+    def testUniqueLocation(self):
         self.assertTrue(UniqueLocation(), 3)
 
 # ANS : 2 Product By Each User
-    def TestProductByEachUser(self):
+    def testProductByEachUser(self):
         def compareDF(spark):
             schema = StructType([StructField("user_id", IntegerType(), True), \
                                  StructField("product_description", StringType(), True)])
@@ -29,7 +29,7 @@ class TestMyFunc(unittest.TestCase):
         self.assertTrue(ProductByEachUser(), compareDF(spark))
 
 # ANS: 3 Total Spending
-    def TestTotalSpending(self):
+    def testTotalSpending(self):
         def checkDF(spark):
             schema = StructType([StructField("user_id", IntegerType(), True), \
                                  StructField("product_description", StringType(), True), \

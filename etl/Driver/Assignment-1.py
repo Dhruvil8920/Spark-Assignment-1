@@ -1,4 +1,4 @@
-from testcases.test import *
+from etl.testcases.test import *
 print(UniqueLocation())
-print(ProductByEachUser())
-TotalSpending()
+ProductByEachUser().show()
+TotalSpending().show()
