@@ -24,7 +24,8 @@ def JoinClm():
 def UniqueLocation():
     df3 = JoinClm()
     df4 = df3.select("location ").distinct().count()
-    return df4
+    coun = f"The count of total no. of unique city where each product bought is: {df4}"
+    return coun
 
 # Products bought by each user
 def ProductByEachUser():
